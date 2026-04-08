@@ -1,9 +1,9 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, update
 from models.news import Category, News
+from cache import news_cache
 
-
-
+@news_cache.cache_categories()
 async def get_categories(db: AsyncSession, skip: int= 0, limit: int = 100):
     """
     获取所有分类
@@ -14,6 +14,7 @@ async def get_categories(db: AsyncSession, skip: int= 0, limit: int = 100):
 
     return categories
 
+@news_cache.cache_news_list()
 async def get_news_list(db: AsyncSession, category_id: int, skip: int= 0, limit: int = 10):
     """
     根据分类id获取新闻
