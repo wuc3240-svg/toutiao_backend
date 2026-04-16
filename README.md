@@ -2,6 +2,10 @@
 
 基于 FastAPI 构建的今日头条后端 RESTful API 项目。
 
+## 相关项目
+
+前端项目：[xwzx-news](https://github.com/wuc3240-svg/xwzx-news.git) - 对应 Vue 前端实现
+
 ## 技术栈
 
 - **框架**: FastAPI
